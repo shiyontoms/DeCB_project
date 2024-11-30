@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+
+<body>
+    <h1>user</h1>
+
+    <table border="1">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+
+        {% for i in data['view'] %}
+        <tr>
+            <td>{{i['fname']}}</td>
+            <td>{{i['lname']}}</td>
+            <td>{{i['phno']}}</td>
+            <td>{{i['email']}}</td>
+        </tr> {% endfor %}
+    </table>
+</body>
+
+</html>

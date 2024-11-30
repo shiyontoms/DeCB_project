@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complaints</title>
+</head>
+
+<body>
+    <h1>complaints</h1>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>mail</th>
+            <th>title</th>
+            <th>description</th>
+            <th>reply</th>
+            <th>date</th>
+        </tr>
+        {%for i in data['view']%}
+        <tr>
+            <td>{{i['fname']}}</td>
+            <td>{{i['email']}}</td>
+            <td>{{i['title']}}</td>
+            <td>{{i['description']}}</td>
+            <td>{{i['reply']}}</td>
+            <td>{{i['date']}}</td>
+            <td>
+                <a href="/admin_send_reply?id={{i['complaint_id']}}">send</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

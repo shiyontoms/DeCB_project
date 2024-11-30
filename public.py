@@ -20,22 +20,31 @@ def login():
 
         if res[0]['usertype']=='admin':
             return redirect(url_for('admin.admin_home'))        
-            
-
-
+        
     return render_template("login.html")
 
-# @public.route('/register',methods=['POST','GET'])
-# def register():
-#     if 'submit' in request.form:
-#         name=request.form['name']
-#         email=request.form['mail']
-#         phno=request.form['phno']
-#         username=request.form['username']
-#         password=request.form['pass']
 
 
-#         qry="insert into login values(null,'%s','%s','user')"%(username,password)
-#         res=insert(qry)
-#         qry1="insert into register values(null,'')"
-#     return render_template("register.html")
+
+@public.route('/user_register',methods=['POST','GET'])
+def user_register():
+    if 'submit' in request.form:
+        fname=request.form['fname']
+        lname=request.form['lname']
+        email=request.form['mail']
+        phno=request.form['phno']
+        username=request.form['uname']
+        password=request.form['passw']
+
+
+        qry="insert into login values(null,'%s','%s','user')"%(username,password)
+        res=insert(qry)
+
+
+        qry1="insert into user values(null,'%s','%s','%s','%s')"%(res,fname,lname,phno,email)
+        insert(qry1)
+
+    return render_template("registration.html")
+
+
+
